@@ -1,0 +1,44 @@
+.hinhthang {
+  border-left: solid 70px transparent;
+  border-right: solid 70px transparent;
+  border-bottom: solid 50px rgb(194, 191, 191);
+  filter: drop-shadow(0 30px 40px rgb(70, 66, 66));
+  width: 80%;
+}
+
+.ghe {
+  margin: 5px;
+  width: 35px;
+  height: 35px;
+  border: 1px solid red;
+  border-radius: 5px;
+  
+  cursor: pointer;
+
+  background-color: #fff;
+}
+
+.ghe-da-dat {
+  background-color: rgb(236, 86, 86);
+  cursor: no-drop;
+}
+
+.ghe-dang-dat {
+  background-color: green !important;
+}
+
+.ghe-vip {
+  background-color: orange;
+}
+
+.ghe-minh-dat {
+  background-color: #fff;
+  color: orange !important;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  padding: 10px
+}

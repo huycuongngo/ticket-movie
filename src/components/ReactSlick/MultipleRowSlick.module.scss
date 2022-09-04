@@ -1,0 +1,24 @@
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
+  font-size: 2.5rem;
+  line-height: 1;
+  opacity: .75;
+  color: gray;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.width-item {
+  width: 80% !important;
+}
+
+.active-film {
+  background-color: gray;
+  color: white;
+}
+
+.none-active-film {
+  background-color: white;
+  color: gray;
+}
