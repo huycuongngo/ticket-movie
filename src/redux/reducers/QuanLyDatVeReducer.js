@@ -5,6 +5,7 @@ const stateDefault = {
   thongTinPhongVe: new ThongTinPhongVe(),
   danhSachGheDangDat: [],
   tabActive: 1,
+  danhSachGheKhachDangDat: [{maGhe: 48041}, {maGhe: 48042}],
 }
 
 export const QuanLyDatVeReducer = (state = stateDefault, action) => {

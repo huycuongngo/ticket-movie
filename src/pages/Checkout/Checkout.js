@@ -15,7 +15,7 @@ function Checkout(props) {
   const dispatch = useDispatch();
   const { userLogin } = useSelector(state => state.QuanLyUserReducer);
   console.log(userLogin);
-  const { thongTinPhongVe, danhSachGheDangDat } = useSelector(state => state.QuanLyDatVeReducer)
+  const { thongTinPhongVe, danhSachGheDangDat, danhSachGheKhachDangDat } = useSelector(state => state.QuanLyDatVeReducer)
   console.log(thongTinPhongVe);
 
   const { thongTinPhim, danhSachGhe } = thongTinPhongVe;
@@ -30,16 +30,23 @@ function Checkout(props) {
 
     return danhSachGhe.map((ghe, index) => {
       let classGheVip = ghe.loaiGhe === "Vip" ? "ghe-vip" : "";
-      let classGheDaDat = ghe.daDat ? "ghe-da-dat" : "";
+      let classGheKhachDaDat = ghe.daDat ? "ghe-da-dat" : "";
       let classGheDangDat = "";
       let classGheMinhDat = "";
+      let classGheKhachDangDat = "";
+
+      // Kiểm tra từng ghế render xem có trong mảng ghế khách đang đặt hay không
+      let indexGheKhachDangDat = danhSachGheKhachDangDat.findIndex((gheKhachDangDat) => gheKhachDangDat.maGhe === ghe.maGhe)
+      if (indexGheKhachDangDat !== -1) {
+        classGheKhachDangDat = 'ghe-khach-dang-dat';
+      }
 
       // Kiểm tra xem ghế chính mình đặt trong mảng ghế đã đặt
       if (userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
         classGheMinhDat = "ghe-minh-dat";
       }
 
-      // Kiểm tra xem từng ghế render xem có trong mảng ghế đang đặt hay không
+      // Kiểm tra từng ghế render xem có trong mảng ghế đang đặt hay không
       let indexGheDangDat = danhSachGheDangDat.findIndex((gheDangDat) => {
 
         return gheDangDat.maGhe === ghe.maGhe;
@@ -57,8 +64,8 @@ function Checkout(props) {
                 payload: ghe,
               })
             }}
-            disabled={ghe.daDat}
-            className={`${styles.ghe} ${styles[classGheVip]} ${styles[classGheDaDat]} ${styles[classGheDangDat]} ${styles[classGheMinhDat]} text-center`}
+            disabled={ghe.daDat || classGheKhachDangDat !== ""}
+            className={`${styles.ghe} ${styles[classGheVip]} ${styles[classGheKhachDaDat]} ${styles[classGheDangDat]} ${styles[classGheMinhDat]} ${styles[classGheKhachDangDat]} text-center`}
           >
             {ghe.daDat ? (userLogin.taiKhoan === ghe.taiKhoanNguoiDat ? <UserOutlined style={{ color: "green", fontSize: "1.5rem" }} /> : <CloseOutlined />) : ghe.stt}
           </button>
@@ -81,14 +88,16 @@ function Checkout(props) {
               <tr>
                 <th>Ghế Thường Chưa Đặt</th>
                 <th>Ghế Vip Chưa Đặt</th>
-                <th>Ghế Đã Đặt</th>
-                <th>Ghế Mình Đặt</th>
+                <th>Ghế Khách Đã Đặt</th>
+                <th>Ghế Mình Đã Đặt</th>
+                <th>Ghế Khách Đang Đặt</th>
               </tr>
               <tr>
                 <td><button className='text-center w-8 h-8 border rounded-sm border-red-500'></button></td>
                 <td><button className='text-center border-red-500 bg-orange-500 w-8 h-8 border rounded-sm'></button></td>
                 <td><button className='text-center bg-red-500 w-8 h-8 border rounded-sm'>X</button></td>
                 <td><button className='text-center w-8 h-8 border rounded-sm border-red-400'><UserOutlined style={{ color: "green", fontSize: "1.5rem" }} /></button></td>
+                <td><button className={`${styles['ghe-khach-dang-dat']}text-center w-8 h-8 border rounded-sm bg-blue-500`}></button></td>
               </tr>
             </table>
           </div>
