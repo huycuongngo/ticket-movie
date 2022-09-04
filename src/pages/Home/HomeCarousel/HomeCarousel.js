@@ -9,7 +9,7 @@ import './HomeCarousel.module.css'
 export default function HomeCarousel() {
   const dispatch = useDispatch();
   const { arrBanners } = useSelector(state => state.CarouselReducer);
-  console.log("arrBanners", arrBanners);
+  // console.log("arrBanners", arrBanners);
   
   useEffect(() => {
     // dispatch ngoài chạy trước từ UI lên middleware, dispatch trong 

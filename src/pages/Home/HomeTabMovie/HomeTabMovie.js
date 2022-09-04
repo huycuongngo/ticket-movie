@@ -6,7 +6,7 @@ const { TabPane } = Tabs;
 
 export default function HomeTabMovie(props) {
   const { heThongRapChieu } = props;
-  console.log("🚀 ~ file: HomeTabMovie.js ~ line 8 ~ HomeTabMovie ~ heThongRap", heThongRapChieu)
+  // console.log("🚀 ~ file: HomeTabMovie.js ~ line 8 ~ HomeTabMovie ~ heThongRap", heThongRapChieu)
 
   const renderHeThongRapChieu = () => {
 

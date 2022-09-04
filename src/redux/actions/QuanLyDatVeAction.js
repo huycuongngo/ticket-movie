@@ -8,7 +8,7 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
   return async (dispatch) => {
     try {
       let response = await quanLyDatVeService.layThongTinPhongVe(maLichChieu);
-      console.log("🚀 ~ file: QuanLyDatVeAction.js ~ line 8 ~ return ~ response", response);
+      // console.log("🚀 ~ file: QuanLyDatVeAction.js ~ line 8 ~ return ~ response", response);
       if (response.status === 200) {
         dispatch({
           type: LAY_THONG_TIN_PHONG_VE,
@@ -16,7 +16,7 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
         })
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 }
@@ -28,7 +28,7 @@ export const datVeAction = (thongTinDatVe) => {
       dispatch(showLoadingAction)
       if (thongTinDatVe.danhSachVe !== null) {
         let response = await quanLyDatVeService.datVe(thongTinDatVe);
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           await dispatch(layThongTinPhongVeAction(thongTinDatVe.maLichChieu));
           await dispatch({
@@ -52,7 +52,7 @@ export const datVeAction = (thongTinDatVe) => {
     } catch (error) {
       dispatch(hideLoadingAction)
       message.error("Đặt vé thất bại!")
-      console.log(error);
+      // console.log(error);
     }
   }
 }

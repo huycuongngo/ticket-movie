@@ -18,7 +18,7 @@ export default function Login() {
       matKhau: '',
     },
     onSubmit: values => {
-      console.log(values);
+      // console.log(values);
       dispatch(dangNhapAction(values, () => {
         history.push("/");
       }));

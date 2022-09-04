@@ -16,7 +16,7 @@ const { TabPane } = Tabs;
 export default function DetailFilm(props) {
   const dispatch = useDispatch();
   const filmDetail = useSelector(state => state.QuanLyPhimReducer.filmDetail);
-  console.log("filmDetail", filmDetail);
+  // console.log("filmDetail", filmDetail);
 
   useEffect(() => {
     // lay thong tin maPhim tu url, nen lay o trong useEffect

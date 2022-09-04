@@ -9,7 +9,7 @@ export default function Footer(props) {
   const arrayHeThongRap = _.map(heThongRapChieu, (heThongRap) => 
     _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', 'logo'])
   )
-  console.log("🚀 ~ file: Footer.js ~ line 10 ~ Footer ~ arrayHeThongRap", arrayHeThongRap)
+  // console.log("🚀 ~ file: Footer.js ~ line 10 ~ Footer ~ arrayHeThongRap", arrayHeThongRap)
 
   // sử dụng thư viện manbaUI
   return (

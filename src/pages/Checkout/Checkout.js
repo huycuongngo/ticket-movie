@@ -14,9 +14,9 @@ import moment from 'moment';
 function Checkout(props) {
   const dispatch = useDispatch();
   const { userLogin } = useSelector(state => state.QuanLyUserReducer);
-  console.log(userLogin);
+  // console.log(userLogin);
   const { thongTinPhongVe, danhSachGheDangDat, danhSachGheKhachDangDat } = useSelector(state => state.QuanLyDatVeReducer)
-  console.log(thongTinPhongVe);
+  // console.log(thongTinPhongVe);
 
   const { thongTinPhim, danhSachGhe } = thongTinPhongVe;
 
@@ -168,7 +168,7 @@ function Checkout(props) {
                 const thongTinDatVe = new ThongTinDatVe();
                 thongTinDatVe.maLichChieu = props.match.params.id;
                 thongTinDatVe.danhSachVe = danhSachGheDangDat;
-                console.log("thongTinDatVe",thongTinDatVe);
+                // console.log("thongTinDatVe",thongTinDatVe);
 
                 dispatch(datVeAction(thongTinDatVe));
               }}
@@ -184,17 +184,11 @@ function KetQuaDatVe(props) {
   const dispatch = useDispatch();
 
   const { thongTinTaiKhoanDatVe } = useSelector(state => state.QuanLyUserReducer);
-  console.log(thongTinTaiKhoanDatVe);
+  // console.log(thongTinTaiKhoanDatVe);
 
   useEffect(() => {
     dispatch(layThongTinTaiKhoanDatVeAction());
   }, [])
-
-  
-  const renderThongTinTaiKhoanDatVe = () => {
-
-    // return thongTinTaiKhoanDatVe
-  }
 
   const renderKetQuaDatVe = () => {
 
@@ -255,7 +249,7 @@ export default function Demo(props) {
   };
 
   const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
-  console.log(tabActive);
+  // console.log(tabActive);
 
   return (
     <div className='p-5'>
