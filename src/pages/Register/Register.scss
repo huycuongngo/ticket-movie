@@ -1,0 +1,101 @@
+$media_queries : (
+  /* Mobile width < 740px */
+  'mobile': "only screen and (max-width: 46.25em)",
+  /* Tablet width >= 740px & width < 1024px */
+  'tablet': " only screen and (min-width: 46.25em) and (max-width: 64em)"
+);
+
+@mixin for_breakpoint($breakpoints) {
+  $conditions: ();
+
+  @each $breakpoint in $breakpoints {
+    // If the key exists in the map
+    $conditions: append($conditions,
+      #{inspect(map-get($media_queries, $breakpoint))},
+      comma);
+  }
+
+  @media #{$conditions} {
+    @content;
+  }
+}
+
+
+.register {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+
+  .register__img {
+    width: 70%;
+    border-right: 1px solid black;
+
+    &>div {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .register__form {
+    width: 30%;
+    // height: 60%;
+    // margin: auto 0;
+    // border: 1px blue solid;
+    padding: 20px;
+  }
+
+  @include for_breakpoint(tablet) {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+
+    .register__img {
+      width: 100%;
+      border-right: none;
+
+      &>div {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .register__form {
+      width: 100%;
+      // height: 50%;
+      // margin: auto 0;
+      // border: 1px blue solid;
+      padding: 0 0 50px 0;
+    }
+  }
+
+
+  @include for_breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    height: 100vh;
+    position: relative;
+
+    .register__img {
+      width: 100%;
+      border-right: none;
+
+      &>div {
+        width: 80%;
+        height: 80%;
+        margin: 0 auto;
+      }
+    }
+
+    .register__form {
+      position: absolute;
+      width: 100%;
+      top: 25%;
+      padding: 20px 0 0;
+    }
+  }
+}

@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
+import { ACCESS_TOKEN, USER_LOGIN } from '../../../../utils/settings/config';
+import { removeLocalStorage } from '../../../../utils/settings/localStorage';
 
 export default function Header(props) {
   const history = useHistory();
@@ -22,6 +24,7 @@ export default function Header(props) {
         <button className="self-center px-8 py-3 rounded">{userLogin.hoTen}</button>
         <button onClick={() => {
           history.push("/login")
+          removeLocalStorage(USER_LOGIN, ACCESS_TOKEN);
         }} className="border-2 self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Logout</button>
       </>
     );
@@ -29,7 +32,7 @@ export default function Header(props) {
   // sử dụng UI manbaUI
   return (
     <div>
-      <header className="p-4 dark:bg-gray-800 dark:text-gray-100 bg-black bg-opacity-40 text-white fixed z-10 w-full">
+      <header className="p-4 dark:bg-gray-800 dark:text-gray-100 bg-black bg-opacity-40 text-white w-full">
         <div className="container flex justify-between h-16 mx-auto">
           <a onClick={() => {
             history.push("/")

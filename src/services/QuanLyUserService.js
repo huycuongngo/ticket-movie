@@ -9,6 +9,11 @@ class QuanLyUserSerive extends baseService {
     return this.post(`/api/QuanLyNguoiDung/DangNhap`, thongTinDangNhap);
   }
 
+  dangKy = (thongTinDangKy) => {
+    
+    return this.post(`/api/QuanLyNguoiDung/DangKy`, thongTinDangKy);
+  }
+
   layThongTinTaiKhoanDatVe = () => {
     return this.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`, {});
   }

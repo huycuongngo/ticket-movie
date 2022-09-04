@@ -20,6 +20,7 @@ export default function CheckoutTemplate(props) {
 
       return (
         <div>
+          <Header />
           <Component {...propsRoute} />
           <Footer />
         </div>
