@@ -20,8 +20,8 @@ export const dangNhapAction = (thongTinDangNhap, onReDirect) => {
         message.error("Dang nhap that bai!");
       }
     } catch (error) {
-      message.error("Dang nhap that bai!");
       // console.log(error);
+      message.error(error.response.data.content);
     }
   };
 }
